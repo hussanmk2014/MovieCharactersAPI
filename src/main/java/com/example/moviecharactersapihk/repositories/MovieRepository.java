@@ -1,2 +1,4 @@
-package com.example.moviecharactersapihk.repositories;public class MovieRepository {
+package com.example.moviecharactersapihk.repositories;
+
+public class MovieRepository {
 }
