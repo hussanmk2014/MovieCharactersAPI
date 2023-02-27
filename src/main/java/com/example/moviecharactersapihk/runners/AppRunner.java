@@ -19,7 +19,5 @@ public class AppRunner implements ApplicationRunner {
     @Transactional
     public void run(ApplicationArguments args) throws Exception {
         System.out.println((characterRepository.findAll()));
-
-
     }
 }
