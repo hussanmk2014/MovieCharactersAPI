@@ -20,5 +20,6 @@ public class AppRunner implements ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception {
         System.out.println((characterRepository.findAll()));
 
+
     }
 }
