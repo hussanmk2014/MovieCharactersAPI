@@ -1,4 +1,6 @@
 package com.example.moviecharactersapihk.services.movie;
 
-public interface MovieService {
+import com.example.moviecharactersapihk.services.CrudService;
+
+public interface MovieService extends CrudService {
 }
