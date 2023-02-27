@@ -1,6 +1,9 @@
 package com.example.moviecharactersapihk.models;
 
 import jakarta.persistence.*;
+
+import java.util.Set;
+
 @Entity
 public class Franchise {
     @Id
@@ -10,5 +13,9 @@ public class Franchise {
     private String name;
     @Column(length = 2000)
     private String description;
+
+    @OneToMany(mappedBy = "franchise")
+    private Set<Movie> movies;
+
 
 }
