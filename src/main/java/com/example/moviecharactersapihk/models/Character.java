@@ -1,10 +1,14 @@
 package com.example.moviecharactersapihk.models;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Set;
 
 @Entity
+@Getter
+@Setter
 public class Character {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,19 +21,13 @@ public class Character {
     private String gender;
     @Column(length = 2083)
     private String picture;
-
-    @Override
-    public String toString() {
-        return "Character{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", alias='" + alias + '\'' +
-                ", gender='" + gender + '\'' +
-                ", picture='" + picture + '\'' +
-                ", movies=" + movies +
-                '}';
-    }
-
     @ManyToMany(mappedBy = "characters")
     private Set<Movie> movies;
+
+
+    public int getId() {
+        return id;
+    }
+
+
 }

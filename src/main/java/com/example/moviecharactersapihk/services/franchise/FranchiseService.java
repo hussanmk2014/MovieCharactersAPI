@@ -5,6 +5,6 @@ import com.example.moviecharactersapihk.services.CrudService;
 
 import java.util.ArrayList;
 
-public interface FranchiseService extends CrudService<Franchise, Integer> {
+public interface FranchiseService extends CrudService<Franchise,Integer> {
     void updateFrachisesMoviesById(int franchise_id, ArrayList<Integer> movieIDs);
 }

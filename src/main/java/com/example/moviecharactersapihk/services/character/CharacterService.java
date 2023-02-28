@@ -5,8 +5,8 @@ import com.example.moviecharactersapihk.services.CrudService;
 
 import java.util.Set;
 
-public interface CharacterService extends CrudService<Character, Integer> {
-        // Extra business logic
-        public Set<Character> findAllCharactersByFranchise(Integer id);
-    }
+public interface CharacterService extends CrudService<Character,Integer> {
 
+    public Set<Character> findAllCharactersByFranchise(Integer id);
+
+}
