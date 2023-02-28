@@ -21,9 +21,25 @@ public class Movie {
     private String picture;
     @Column(length = 2083)
     private String trailer;
+
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", release='" + release + '\'' +
+                ", genre='" + genre + '\'' +
+                ", director='" + director + '\'' +
+                ", picture='" + picture + '\'' +
+                ", trailer='" + trailer + '\'' +
+
+                '}';
+    }
     @ManyToOne
     @JoinColumn(name = "franchise_id")
     private Franchise franchise;
+
+
     @ManyToMany
     @JoinTable(
             name = "movie_character",
@@ -31,4 +47,76 @@ public class Movie {
             inverseJoinColumns = {@JoinColumn(name = "character_id")}
     )
     private Set<Character> characters;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public int getRelease() {
+        return release;
+    }
+
+    public void setRelease(int release) {
+        this.release = release;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public String getDirector() {
+        return director;
+    }
+
+    public void setDirector(String director) {
+        this.director = director;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
+
+    public String getTrailer() {
+        return trailer;
+    }
+
+    public void setTrailer(String trailer) {
+        this.trailer = trailer;
+    }
+
+    public Franchise getFranchise() {
+        return franchise;
+    }
+
+    public void setFranchise(Franchise franchise) {
+        this.franchise = franchise;
+    }
+
+    public Set<Character> getCharacters() {
+        return characters;
+    }
+
+    public void setCharacters(Set<Character> characters) {
+        this.characters = characters;
+    }
 }

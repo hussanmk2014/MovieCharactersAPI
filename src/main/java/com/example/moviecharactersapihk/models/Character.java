@@ -9,6 +9,9 @@ public class Character {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+
+
     @Column(length = 50, nullable = false)
     private String name;
     @Column(length = 50)
@@ -18,6 +21,38 @@ public class Character {
     @Column(length = 2083)
     private String picture;
 
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAlias() {
+        return alias;
+    }
+
+    public void setAlias(String alias) {
+        this.alias = alias;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
     @Override
     public String toString() {
         return "Character{" +
