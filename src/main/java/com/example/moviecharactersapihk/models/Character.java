@@ -2,6 +2,7 @@ package com.example.moviecharactersapihk.models;
 
 import jakarta.persistence.*;
 
+
 import java.util.Set;
 
 @Entity
@@ -30,14 +31,32 @@ public class Character {
                 '}';
     }
 
-    @ManyToMany(mappedBy = "characters")
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "character_movie",
+            joinColumns = {@JoinColumn(name = "character_id")},
+            inverseJoinColumns = {@JoinColumn(name = "movie_id")}
+    )
     private Set<Movie> movies;
 
+    public String getAlias() {
+        return alias;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+/*
     public Movie getMovies() {
         return (Movie) movies;
     }
 
     public void setMovies(Movie movies) {
         this.movies = (Set<Movie>) movies;
-    }
+   }*/
 }

@@ -1,9 +1,11 @@
 package com.example.moviecharactersapihk.services.franchise;
 
 import com.example.moviecharactersapihk.models.Franchise;
+import com.example.moviecharactersapihk.models.Movie;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Set;
 
 public class FranchiseServiceImpl implements FranchiseService{
     @Override
@@ -33,6 +35,12 @@ public class FranchiseServiceImpl implements FranchiseService{
 
     @Override
     public void delete(Franchise entity) {
+
+    }
+
+
+    @Override
+    public void updateFranchisesMoviesById(int franchise_id, Set<Movie> movies) {
 
     }
 
