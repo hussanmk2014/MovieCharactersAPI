@@ -77,8 +77,5 @@ public class Character {
     )
     private Set<Movie> movies;
 
-    public String getAlias() {
-        return alias;
-    }
 
 }
