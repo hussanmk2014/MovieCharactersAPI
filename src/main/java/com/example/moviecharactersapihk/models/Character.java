@@ -32,4 +32,12 @@ public class Character {
 
     @ManyToMany(mappedBy = "characters")
     private Set<Movie> movies;
+
+    public Movie getMovies() {
+        return (Movie) movies;
+    }
+
+    public void setMovies(Movie movies) {
+        this.movies = (Set<Movie>) movies;
+    }
 }
