@@ -22,9 +22,7 @@ public class AppRunner implements ApplicationRunner {
         System.out.println((characterRepository.findAll()));
         System.out.println(characterRepository
                 .findById(1).get());
-
         System.out.println(characterRepository.findById(1).get().getName());
-
+        System.out.println(characterRepository.findById(1).get().getMovies());
 }
-
 }
