@@ -1,17 +1,17 @@
 package com.example.moviecharactersapihk.runners;
-import com.example.moviecharactersapihk.services.character.CharacterService;
+
 import com.example.moviecharactersapihk.repositories.CharacterRepository;
+import com.example.moviecharactersapihk.services.character.CharacterService;
 import com.example.moviecharactersapihk.services.movie.MovieService;
 import jakarta.transaction.Transactional;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
-import com.example.moviecharactersapihk.models.Character;
 
-
-import java.util.Set;
-
-
+@Getter
+@Setter
 @Component
 public class AppRunner implements ApplicationRunner {
     private final CharacterRepository characterRepository;
@@ -28,6 +28,8 @@ public class AppRunner implements ApplicationRunner {
     @Override
     @Transactional
     public void run(ApplicationArguments args) throws Exception {
+
+        //characterService.deleteById(3);
 
        /* Character a =characterService.findById(2);
         a.setName("dfg");

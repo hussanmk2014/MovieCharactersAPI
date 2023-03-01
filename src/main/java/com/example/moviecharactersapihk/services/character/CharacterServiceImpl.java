@@ -4,13 +4,16 @@ import com.example.moviecharactersapihk.models.Character;
 import com.example.moviecharactersapihk.models.Movie;
 import com.example.moviecharactersapihk.repositories.CharacterRepository;
 import jakarta.transaction.Transactional;
+import lombok.Getter;
+import lombok.Setter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.Set;
-
+@Getter
+@Setter
 @Service
 public class CharacterServiceImpl implements CharacterService{
 
