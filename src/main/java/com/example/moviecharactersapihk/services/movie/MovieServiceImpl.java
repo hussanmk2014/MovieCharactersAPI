@@ -12,12 +12,17 @@ import java.util.Collection;
 @Service
 public class MovieServiceImpl implements MovieService{
 
+
+
     private final MoviesRepository moviesRepository;
-    private final Logger logger = LoggerFactory.getLogger(CharacterServiceImpl.class);
 
     public MovieServiceImpl(MoviesRepository moviesRepository) {
-        this.moviesRepository = MovieServiceImpl.this.moviesRepository;
+        this.moviesRepository = moviesRepository;
     }
+
+    private final Logger logger = LoggerFactory.getLogger(CharacterServiceImpl.class);
+
+
     @Override
     public Movie findById(Integer id) {
         return moviesRepository.findById(id).get();
