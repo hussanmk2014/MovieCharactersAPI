@@ -6,9 +6,10 @@ import lombok.Setter;
 
 
 import java.util.Set;
+
+@Entity
 @Getter
 @Setter
-@Entity
 public class Character {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +22,8 @@ public class Character {
     private String gender;
     @Column(length = 2083)
     private String picture;
-
+    @ManyToMany(mappedBy = "characters")
+    private Set<Movie> movies;
     @Override
     public String toString() {
         return "Character{" +
@@ -34,16 +36,24 @@ public class Character {
                 '}';
     }
 
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "character_movie",
             joinColumns = {@JoinColumn(name = "character_id")},
             inverseJoinColumns = {@JoinColumn(name = "movie_id")}
     )
-    private Set<Movie> movies;
 
     public String getAlias() {
         return alias;
     }
 
+
+
+    public int getId() {
+        return id;
+    }
+
+
 }
+

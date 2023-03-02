@@ -9,12 +9,10 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.ArrayList;
 import java.util.Set;
 
+
 public interface FranchiseService extends CrudService<Franchise, Integer> {
     @Modifying
     @Query("update Franchise fr set fr.movies = ?2 where fr.id = ?1")
     void updateFranchisesMoviesById(int franchise_id, Set<Movie> movies);
-
-    void updateFrachisesMoviesById(int franchise_id, ArrayList<Integer> movieIDs);
-
 
 }

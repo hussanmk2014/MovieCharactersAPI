@@ -12,4 +12,6 @@ public interface MoviesRepository extends JpaRepository<Movie, Integer> {
     @Query("select m from Movie m where m.franchise=?1")
     Set<Movie> findAllByFranchise(int franchise_id);
 
+
 }
+

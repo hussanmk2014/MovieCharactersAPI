@@ -8,6 +8,8 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
+@Getter
+@Setter
 public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,6 +29,18 @@ public class Movie {
     @ManyToOne
     @JoinColumn(name = "franchise_id")
     private Franchise franchise;
+
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "id=" + id +
+                ", release='" + release + '\'' +
+                ", genre='" + genre + '\'' +
+                ", director='" + director + '\'' +
+                ", picture='" + picture + '\'' +
+                ", trailer=" + trailer +
+                '}';
+    }
     @ManyToMany
     @JoinTable(
             name = "movie_character",
@@ -34,4 +48,11 @@ public class Movie {
             inverseJoinColumns = {@JoinColumn(name = "character_id")}
     )
     private Set<Character> characters;
+
+
+    public int getId() {
+        return id;
+    }
+
+
 }

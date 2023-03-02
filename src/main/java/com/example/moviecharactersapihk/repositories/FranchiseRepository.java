@@ -14,4 +14,6 @@ public interface FranchiseRepository extends JpaRepository<Franchise,Integer> {
     @Modifying
     @Query("update Franchise fr set fr.movies = ?2 where fr.id = ?1")
     void updateFranchisesMoviesById(int franchise_id, Set<Movie> movies);
+
+
 }
