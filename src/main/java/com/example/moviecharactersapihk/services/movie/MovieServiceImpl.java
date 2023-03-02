@@ -6,25 +6,17 @@ import com.example.moviecharactersapihk.repositories.MoviesRepository;
 
 import com.example.moviecharactersapihk.services.character.CharacterService;
 import jakarta.transaction.Transactional;
-
-import com.example.moviecharactersapihk.models.Movie;
-import com.example.moviecharactersapihk.repositories.MoviesRepository;
-import com.example.moviecharactersapihk.services.character.CharacterServiceImpl;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-
 import java.util.ArrayList;
-
 import java.util.Collection;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
 public class MovieServiceImpl implements MovieService{
-
 
     private final Logger logger = LoggerFactory.getLogger(MovieServiceImpl.class);
     private final MoviesRepository movieRepository;
@@ -36,13 +28,12 @@ public class MovieServiceImpl implements MovieService{
         this.movieRepository = movieRepository;
         this.characterService = characterService;
     }
-    /* 
     @Override
     public Movie findById(Integer id) {
         return movieRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException());
 
-    }*/
+    }
 
     @Override
     public Collection<Movie> findAll() {
@@ -53,12 +44,12 @@ public class MovieServiceImpl implements MovieService{
     public Movie add(Movie entity) {
         return movieRepository.save(entity);
     }
-/* 
+
     @Override
     public Movie update(Movie entity) {
 
         return movieRepository.save(entity);
-    } */
+    }
     @Transactional
     @Override
     public void deleteById(Integer id) {
@@ -92,24 +83,8 @@ public class MovieServiceImpl implements MovieService{
         else
             logger.warn("No movie exists with ID: " + id);
         return null;
+
     }
-
-
-    private final MoviesRepository moviesRepository;
-
-    public MovieServiceImpl(MoviesRepository moviesRepository) {
-        this.moviesRepository = moviesRepository;
-    }
-
-    
-
-    @Override
-    public Movie findById(Integer id) {
-        return moviesRepository.findById(id).get();
-    }
-
-
-    
     @Transactional
     @Override
     public void updateMoviesCharactersById(int movieId, ArrayList<Integer> characterIDs){
@@ -122,22 +97,6 @@ public class MovieServiceImpl implements MovieService{
         movie.setCharacters(characters.stream().collect(Collectors.toSet()));
 
     }
-
-
-
-    @Override // This method needs to be updated correctly
-    public Movie update(Movie movie) {
-
-        Movie updMovie = moviesRepository.findById(movie.getId()).get();
-
-        updMovie.setTitle(movie.getTitle());
-        updMovie.setDirector(movie.getDirector());
-
-
-        return moviesRepository.save(updMovie);
-    }
-
-
 
 
 }
