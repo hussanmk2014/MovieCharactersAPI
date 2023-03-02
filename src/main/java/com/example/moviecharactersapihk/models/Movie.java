@@ -28,6 +28,18 @@ public class Movie {
     @ManyToOne
     @JoinColumn(name = "franchise_id")
     private Franchise franchise;
+
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "id=" + id +
+                ", release='" + release + '\'' +
+                ", genre='" + genre + '\'' +
+                ", director='" + director + '\'' +
+                ", picture='" + picture + '\'' +
+                ", trailer=" + trailer +
+                '}';
+    }
     @ManyToMany
     @JoinTable(
             name = "movie_character",

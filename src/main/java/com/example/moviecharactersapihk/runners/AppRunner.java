@@ -42,6 +42,7 @@ public class AppRunner implements ApplicationRunner {
         Set<Character> c = characterService.findAllCharactersByFranchise(3);*/
 
         System.out.println((characterRepository.findAll()));
+        System.out.println((characterRepository.findById(2).get().getMovies()));
         //characterService.findAllCharactersByFranchise(3).stream().forEach(c -> System.out.println(c.getName()));
        // characterService.deleteById(1);
         //Character newStudent = new Character();

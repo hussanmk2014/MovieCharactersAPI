@@ -23,7 +23,17 @@ public class Character {
     private String picture;
     @ManyToMany(mappedBy = "characters")
     private Set<Movie> movies;
-
+    @Override
+    public String toString() {
+        return "Character{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", alias='" + alias + '\'' +
+                ", gender='" + gender + '\'' +
+                ", picture='" + picture + '\'' +
+                ", movies=" + movies +
+                '}';
+    }
 
     public int getId() {
         return id;
