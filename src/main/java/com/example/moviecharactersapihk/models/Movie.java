@@ -53,10 +53,10 @@ public class Movie {
     )
     private Set<Character> characters;
 
-    public int getId() {
+  public int getId() {
         return id;
     }
-
+ /*
     public void setId(int id) {
         this.id = id;
     }
@@ -123,5 +123,5 @@ public class Movie {
 
     public void setCharacters(Set<Character> characters) {
         this.characters = characters;
-    }
+    }*/
 }

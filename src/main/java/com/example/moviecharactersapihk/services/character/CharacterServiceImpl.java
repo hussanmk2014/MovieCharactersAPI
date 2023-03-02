@@ -28,7 +28,7 @@ public class CharacterServiceImpl implements CharacterService {
 
     @Override
     public Collection<Character> findAll() {
-        return null;
+     return  characterRepository.findAll();
     }
 
     @Override

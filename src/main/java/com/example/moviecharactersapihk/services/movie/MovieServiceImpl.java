@@ -1,5 +1,6 @@
 package com.example.moviecharactersapihk.services.movie;
 
+import com.example.moviecharactersapihk.exceptions.MovieNotFoundException;
 import com.example.moviecharactersapihk.models.Movie;
 import com.example.moviecharactersapihk.repositories.MoviesRepository;
 import com.example.moviecharactersapihk.services.character.CharacterServiceImpl;
@@ -16,16 +17,17 @@ public class MovieServiceImpl implements MovieService{
 
     private final MoviesRepository moviesRepository;
 
+    private final Logger logger = LoggerFactory.getLogger(CharacterServiceImpl.class);
+
     public MovieServiceImpl(MoviesRepository moviesRepository) {
         this.moviesRepository = moviesRepository;
     }
 
-    private final Logger logger = LoggerFactory.getLogger(CharacterServiceImpl.class);
-
 
     @Override
     public Movie findById(Integer id) {
-        return moviesRepository.findById(id).get();
+        System.out.println("ge" + id);
+        return moviesRepository.findById(id).orElseThrow(() -> new MovieNotFoundException(id));
     }
 
     @Override
@@ -41,13 +43,13 @@ public class MovieServiceImpl implements MovieService{
     @Override // This method needs to be updated correctly
     public Movie update(Movie movie) {
 
-        Movie updMovie = moviesRepository.findById(movie.getId()).get();
+/*      Movie updMovie = moviesRepository.findById(movie.getId()).get();
 
         updMovie.setTitle(movie.getTitle());
-        updMovie.setDirector(movie.getDirector());
+        updMovie.setDirector(movie.getDirector());*/
 
 
-        return moviesRepository.save(updMovie);
+        return moviesRepository.save(movie);
     }
 
     @Override
