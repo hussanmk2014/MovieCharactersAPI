@@ -14,6 +14,9 @@ public class Character {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+
+
     @Column(length = 50, nullable = false)
     private String name;
     @Column(length = 50)
@@ -22,8 +25,10 @@ public class Character {
     private String gender;
     @Column(length = 2083)
     private String picture;
+
     @ManyToMany(mappedBy = "characters")
     private Set<Movie> movies;
+
     @Override
     public String toString() {
         return "Character{" +
@@ -44,9 +49,6 @@ public class Character {
             inverseJoinColumns = {@JoinColumn(name = "movie_id")}
     )
 
-    public String getAlias() {
-        return alias;
-    }
 
 
 

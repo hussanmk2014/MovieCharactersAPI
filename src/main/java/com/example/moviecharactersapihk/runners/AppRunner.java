@@ -16,6 +16,7 @@ import org.springframework.stereotype.Component;
 @Setter
 @Component
 public class AppRunner implements ApplicationRunner {
+
     private final CharacterRepository characterRepository;
     private final CharacterService characterService;
     private final MovieService movieService;
@@ -25,8 +26,9 @@ public class AppRunner implements ApplicationRunner {
         this.characterRepository=characterRepository;
         this.characterService = characterService;
         this.movieService = movieService;
-    }
 
+    }
+    
     @Override
     @Transactional
     public void run(ApplicationArguments args) throws Exception {

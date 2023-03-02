@@ -1,5 +1,6 @@
 package com.example.moviecharactersapihk.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -25,9 +26,13 @@ public class Movie {
     private String picture;
     @Column(length = 2083)
     private String trailer;
+
+    
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "franchise_id")
     private Franchise franchise;
+
 
     @Override
     public String toString() {
@@ -40,6 +45,9 @@ public class Movie {
                 ", trailer=" + trailer +
                 '}';
     }
+
+
+
     @ManyToMany
     @JoinTable(
             name = "movie_character",
