@@ -2,12 +2,6 @@ package com.example.moviecharactersapihk.services.franchise;
 
 import com.example.moviecharactersapihk.models.Franchise;
 import com.example.moviecharactersapihk.models.Movie;
-
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Set;
-
 import com.example.moviecharactersapihk.repositories.FranchiseRepository;
 import com.example.moviecharactersapihk.services.movie.MovieService;
 import jakarta.transaction.Transactional;
@@ -17,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 
@@ -87,6 +82,11 @@ public class FranchiseServiceImpl implements FranchiseService{
         }
 
         fr.setMovies(movies.stream().collect(Collectors.toSet()));
+
+    }
+
+    @Override
+    public void updateFranchisesMoviesById(int franchise_id, Set<Movie> movies) {
 
     }
 }
