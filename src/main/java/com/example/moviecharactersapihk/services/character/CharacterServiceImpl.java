@@ -32,8 +32,8 @@ public class CharacterServiceImpl implements CharacterService {
     }
 
     @Override
-    public Character add(Character entity) {
-        return null;
+    public Character add(Character character) {
+        return characterRepository.save(character);
     }
 
     @Override
@@ -41,9 +41,10 @@ public class CharacterServiceImpl implements CharacterService {
         return null;
     }
 
+    // this needs to handle foreign key constraint
     @Override
-    public void deleteById(Integer integer) {
-
+    public void deleteById(Integer id) {
+        characterRepository.deleteById(id);
     }
 
     @Override
