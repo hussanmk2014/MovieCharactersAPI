@@ -9,18 +9,9 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class AppRunner implements ApplicationRunner {
-    CharacterRepository characterRepository;
-
-    public AppRunner(CharacterRepository characterRepository) {
-        this.characterRepository = characterRepository;
-    }
     @Override
     @Transactional
     public void run(ApplicationArguments args) throws Exception {
-        System.out.println((characterRepository.findAll()));
-        System.out.println(characterRepository
-                .findById(1).get());
-        System.out.println(characterRepository.findById(1).get().getName());
-        System.out.println(characterRepository.findById(1).get().getMovies());
+
 }
 }

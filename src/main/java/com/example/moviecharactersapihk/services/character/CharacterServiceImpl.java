@@ -3,6 +3,7 @@ package com.example.moviecharactersapihk.services.character;
 import com.example.moviecharactersapihk.models.Character;
 import com.example.moviecharactersapihk.repositories.CharacterRepository;
 import com.example.moviecharactersapihk.services.character.CharacterService;
+import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;

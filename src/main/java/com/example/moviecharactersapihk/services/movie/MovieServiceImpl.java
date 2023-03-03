@@ -16,17 +16,17 @@ public class MovieServiceImpl implements MovieService{
 
 
     private final MoviesRepository moviesRepository;
-
-    private final Logger logger = LoggerFactory.getLogger(CharacterServiceImpl.class);
-
     public MovieServiceImpl(MoviesRepository moviesRepository) {
         this.moviesRepository = moviesRepository;
     }
+    private final Logger logger = LoggerFactory.getLogger(CharacterServiceImpl.class);
+
+
 
 
     @Override
     public Movie findById(Integer id) {
-        System.out.println("ge" + id);
+
         return moviesRepository.findById(id).orElseThrow(() -> new MovieNotFoundException(id));
     }
 
@@ -42,12 +42,6 @@ public class MovieServiceImpl implements MovieService{
 
     @Override // This method needs to be updated correctly
     public Movie update(Movie movie) {
-
-/*      Movie updMovie = moviesRepository.findById(movie.getId()).get();
-
-        updMovie.setTitle(movie.getTitle());
-        updMovie.setDirector(movie.getDirector());*/
-
 
         return moviesRepository.save(movie);
     }
